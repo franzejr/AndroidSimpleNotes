@@ -1,0 +1,49 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:name="com.simplenotes.NoteFragment"
+        android:id="@+id/fragment_notes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp" />
+
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        fab:fab_addButtonColorNormal="@color/background_material_dark"
+        fab:fab_addButtonColorPressed="@color/background_floating_material_light"
+        fab:fab_addButtonPlusIconColor="@color/accent_material_light"
+        fab:fab_addButtonSize="normal"
+        android:layout_gravity="right|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/fragment_notes"
+        android:layout_alignEnd="@+id/fragment_notes">
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="#FFFFD075"
+            fab:fab_title="Label on the right"
+            fab:fab_icon="@drawable/ic_launcher"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CREATE"
+            android:textSize="11sp"
+            android:layout_centerHorizontal="true"/>
+
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+    </FrameLayout>
