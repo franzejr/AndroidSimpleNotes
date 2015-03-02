@@ -3,10 +3,12 @@ package com.simplenotes.pojo;
 
 public class Note {
 
+    private String title;
     private String note;
 
-    public Note(String s) {
-        this.note = s;
+    public Note(String title, String note) {
+        this.title = title;
+        this.note = note;
     }
 
     public String getNote() {
@@ -15,5 +17,13 @@ public class Note {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

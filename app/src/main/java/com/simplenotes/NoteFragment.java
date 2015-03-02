@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
-import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.SwipeDismissAdapter;
 import com.simplenotes.adapters.NotesAdapter;
 import com.simplenotes.controllers.NoteController;
 import com.simplenotes.pojo.Note;
@@ -28,7 +27,7 @@ public class NoteFragment extends ListFragment implements OnDismissCallback {
         arrayList = new ArrayList<Note>();
 
         NotesAdapter notesAdapter = new NotesAdapter(getActivity(), arrayList);
-        SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(new SwipeDismissAdapter(notesAdapter, this));
+        SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(notesAdapter);
         swingBottomInAnimationAdapter.setAbsListView(getListView());
         swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(INITIAL_DELAY_MILLIS);
         setListAdapter( swingBottomInAnimationAdapter);
@@ -39,13 +38,6 @@ public class NoteFragment extends ListFragment implements OnDismissCallback {
         setListAdapter(new NotesAdapter(getActivity(),arrayList));
     }
 
-
-    private void generateNotes(){
-        this.arrayList = new ArrayList<Note>();
-        for (int i = 0 ; i < 20; i++){
-            this.arrayList.add(new Note("Test"));
-        }
-    }
 
     @Override
     public void onDismiss(@NonNull ViewGroup viewGroup, @NonNull int[] reverseSortedPositions) {

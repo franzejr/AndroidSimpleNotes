@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.simplenotes.R;
 import com.simplenotes.pojo.Note;
 
+
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
@@ -36,12 +37,15 @@ public class NotesAdapter extends ArrayAdapter<Note> {
         View rowView = inflater.inflate(R.layout.listview_note_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(rowView);
 
+        viewHolder.title.setText(note.getTitle());
         viewHolder.note.setText(note.getNote());
 
         return rowView;
     }
 
     static class ViewHolder {
+        @InjectView(R.id.title)
+        TextView title;
         @InjectView(R.id.note)
         TextView note;
 

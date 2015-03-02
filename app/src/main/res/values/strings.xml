@@ -7,6 +7,7 @@
     <string name="create">Create</string>
     <string name="create_new_note">Create New Note</string>
     <string name="cancel">Cancel</string>
-    <string name="note_name">Note Name</string>
+    <string name="title_name">Title</string>
+    <string name="note_name">Your note here</string>
 
 </resources>

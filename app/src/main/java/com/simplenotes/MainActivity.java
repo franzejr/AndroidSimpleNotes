@@ -20,9 +20,6 @@ public class MainActivity extends ActionBarActivity {
 
     private NoteFragment fragment;
 
-    @InjectView(R.id.add_note)
-    FloatingActionButton addNote;
-
     @OnClick(R.id.add_note) void addNote(){
 
         MaterialDialog dialog = new MaterialDialog.Builder(this)
@@ -33,8 +30,9 @@ public class MainActivity extends ActionBarActivity {
                 .callback(new MaterialDialog.ButtonCallback() {
                     @Override
                     public void onPositive(MaterialDialog dialog) {
+                        TextView titleTextView = (TextView)dialog.findViewById(R.id.txt_title);
                         TextView noteTextView = (TextView)dialog.findViewById(R.id.note);
-                        Note note = new Note(noteTextView.getText().toString());
+                        Note note = new Note(titleTextView.getText().toString(), noteTextView.getText().toString());
                         fragment.noteController.create(note);
                     }
 
