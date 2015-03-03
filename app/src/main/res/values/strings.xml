@@ -9,5 +9,6 @@
     <string name="cancel">Cancel</string>
     <string name="title_name">Title</string>
     <string name="note_name">Your note here</string>
+    <string name="title_activity_note">NoteActivity</string>
 
 </resources>

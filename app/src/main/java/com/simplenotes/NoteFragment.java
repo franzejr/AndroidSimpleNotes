@@ -1,9 +1,14 @@
 package com.simplenotes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ListFragment;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
@@ -31,6 +36,16 @@ public class NoteFragment extends ListFragment implements OnDismissCallback {
         swingBottomInAnimationAdapter.setAbsListView(getListView());
         swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(INITIAL_DELAY_MILLIS);
         setListAdapter( swingBottomInAnimationAdapter);
+    }
+
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Note note = arrayList.get(position);
+        Intent intent = new Intent(getActivity(), NoteActivity.class);
+        intent.putExtra("note",note);
+        startActivity(intent);
     }
 
     public void onUpdateAdater(Note note){
