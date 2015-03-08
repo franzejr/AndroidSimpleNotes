@@ -31,6 +31,8 @@ public class NoteFragment extends ListFragment implements OnDismissCallback {
         noteController = new NoteController(this);
         arrayList = new ArrayList<Note>();
 
+        noteController.getAllNotes();
+
         NotesAdapter notesAdapter = new NotesAdapter(getActivity(), arrayList);
         SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(notesAdapter);
         swingBottomInAnimationAdapter.setAbsListView(getListView());
@@ -59,5 +61,9 @@ public class NoteFragment extends ListFragment implements OnDismissCallback {
         for (int position : reverseSortedPositions) {
             arrayList.remove(position);
         }
+    }
+
+    public void onUpdateAdater(ArrayList<Note> notes) {
+        arrayList = notes;
     }
 }
